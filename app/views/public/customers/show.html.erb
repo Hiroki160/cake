@@ -1,2 +1,9 @@
-<h1>Public::Customers#show</h1>
+<h1>Bienvenido</h1>
 <p>Find me in app/views/public/customers/show.html.erb</p>
+
+    <% if flash[:notice] %>
+      <div class="alert alert-primary" role="alert"><strong><%= notice %></strong></div>
+    <% end %>
+    <% if flash[:alert] %>
+      <div class="alert alert-danger" role="alert"><strong><%= alert %></strong></div>
+    <% end %>
