@@ -1,2 +1,14 @@
-<h1>Public::Customers#edit</h1>
-<p>Find me in app/views/public/customers/edit.html.erb</p>
+<h2>Edit</h2>
+
+<%= form_with model: @customer, url: public_customers_information_edit_path do |f| %>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.submit "保存" %>
+  </div>
+
+<% end %>
+
+
+
