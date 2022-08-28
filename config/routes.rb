@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :genres, only: [:index, :create, :edit, :update]
+  devise_for :addresses
   root to: 'homes#top'
   get 'homes/about' => 'homes#about'
 
