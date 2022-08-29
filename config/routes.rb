@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
+namespace :admin do
   resources :genres, only: [:index, :create, :edit, :update]
+end
+
   devise_for :addresses
   root to: 'homes#top'
   get 'homes/about' => 'homes#about'
