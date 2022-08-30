@@ -1,2 +1,64 @@
-<h1>Admin::Items#new</h1>
-<p>Find me in app/views/admin/items/new.html.erb</p>
+<section class="hero is-success">
+  <div class="hero-body">
+    <div class="container">
+      <h3 class="title">
+        商品新規登録<br><br>
+      </h3>
+    </div>
+  </div>
+</section>
+
+<!--items画面-->
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-6">
+<%= form_with model: @item, url: admin_items_path, method: :post do |f| %>
+
+
+
+    <div class="field form-inline">
+      <p style="margin-right:5%;">商品画像</p>
+        <div class="field" style="margin-right:5%;"><%= f.file_field :image, accept: "image/*" %></div>
+    </div>
+
+    <div class="field form-inline">
+      <p style="margin-right:5%;">商品名</p>
+        <div class="field" style="margin-right:5%;"><%= f.text_field :name %></div>
+    </div>
+
+    <div class="field form-inline">
+      <p style="margin-right:5%;">商品説明</p>
+        <div class="field" style="margin-right:5%;"><%= f.text_area :introduction %></div>
+    </div>
+
+    <div class="field form-inline">
+      <p style="margin-right:5%;">ジャンル</p>
+        <div class="field" style="margin-right:5%;"><%= f.collection_select :genre_id, Genre.all, :id, :name %><%#= f.select :genre_id, [['クッキー',1], ['ケーキ',2], ['キャンディ',3]] %></div>
+    </div>
+
+    <div class="field form-inline">
+      <p style="margin-right:5%;">税抜価格</p>
+        <div class="field" style="margin-right:5%;"><%= f.text_field :price %>円</div>
+    </div>
+
+    <div class="field form-inline">
+      <p style="margin-right:5%;">販売ステータス</p>
+      <div>
+      	<%= f.radio_button :is_active, true %>
+      </div>
+      <div style="margin-right:3%;">
+      	<%= f.label :is_active, "販売中" %>
+      </div>
+
+      <div>
+        <%= f.radio_button :is_active, false %>
+      </div>
+      <div>
+        <%= f.label :is_active, "販売停止中" %>
+      </div>
+    </div>
+
+    <%= f.submit '新規登録', class: 'btn btn-success' %>
+
+<% end %>
