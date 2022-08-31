@@ -18,8 +18,35 @@
   <p class="field" style="margin-right:5%;"><%= @item.name %></p>
 </div>
 
+<div class="field form-inline">
+  <h4 style="margin-right:5%;">商品説明</h4>
+  <p class="field" style="margin-right:5%;"><%= @item.introduction %></p>
+</div>
 
+<div class="field form-inline">
+  <h4 style="margin-right:5%;">ジャンル</h4>
+  <p class="field" style="margin-right:5%;"><%= @item.genre.name %></p>
+</div>
 
+<div class="field form-inline">
+  <h4 style="margin-right:5%;">税込価格(税抜価格)</h4>
+  <p class="field" style="margin-right:5%;"><%= (@item.price*1.1).to_i %>(<%= @item.price %>)円</p>
+</div>
+
+<div class="field form-inline">
+  <h4 style="margin-right:5%;">販売ステータス</h4>
+  <p class="field" style="margin-right:5%;">
+    <% if @item.is_active == true %>
+    販売中
+    <% else %>
+    販売停止中
+    <% end %>
+  </p>
+</div>
+
+<div>
+<%= link_to '編集する',edit_admin_item_path(@item.id), class: 'btn btn-success' %>
+</div>
 
       </div>
     </div>
