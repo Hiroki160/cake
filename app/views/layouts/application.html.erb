@@ -29,7 +29,7 @@
     <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: 'nav-link text-dark' %>
   </li>
   <li class="nav-item">
-    <%= link_to 'マイページ', public_customers_my_page_path, class: 'nav-link text-dark' %>
+    <%= link_to 'マイページ', customer_path, class: 'nav-link text-dark' %>
   </li>
   <li class="nav-item">
     <%= link_to '会社概要', homes_about_path, class: 'nav-link text-dark' %>
@@ -41,7 +41,7 @@
     <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: 'nav-link text-dark' %>
   </li>
   <li class="nav-item">
-    <%= link_to 'マイページ', public_customers_my_page_path, class: 'nav-link text-dark' %>
+    <%= link_to 'マイページ', customers_my_page_path, class: 'nav-link text-dark' %>
   </li>
   <li class="nav-item">
     <%= link_to '会社概要', homes_about_path, class: 'nav-link text-dark' %>

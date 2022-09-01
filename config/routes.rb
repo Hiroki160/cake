@@ -1,19 +1,24 @@
 Rails.application.routes.draw do
 
   namespace :admin do
-    resources :items, only: [:index, :new, :create, :show, :edit, :update]
-    
+    get 'customers/index'
+    get 'customers/show'
+    get 'customers/edit'
+    get 'customers/update'
   end
-  
-  namespace :admin do
-  resources :genres, only: [:index, :create, :edit, :update]
-  end
-
-  devise_for :addresses
   root to: 'homes#top'
   get 'homes/about' => 'homes#about'
 
-  namespace :public do
+  namespace :admin do
+  #アイテム
+  resources :items, only: [:index, :new, :create, :show, :edit, :update]
+  #ジャンル
+  resources :genres, only: [:index, :create, :edit, :update]
+  #会員
+  resources :customers, only: [:index, :show, :edit, :update]
+  end
+
+  scope module: :public do
 
    #会員情報
     get 'customers/my_page' => 'customers#show'
@@ -23,6 +28,7 @@ Rails.application.routes.draw do
     get 'customers/confirmation'
     patch 'customers/withdrawal'
   end
+
   #顧客用
   devise_for :customers,skip: [:passwords], controllers: {
     registrations: "public/registrations",
