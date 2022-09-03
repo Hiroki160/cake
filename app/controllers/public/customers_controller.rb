@@ -12,7 +12,7 @@ class Public::CustomersController < ApplicationController
   def update
     @customer = current_customer
     if @customer.update(customer_params)
-    redirect_to public_customers_my_page_path, notice: 'ユーザー情報を更新しました'
+    redirect_to customers_my_page_path, notice: 'ユーザー情報を更新しました'
     else
       render :edit
     end

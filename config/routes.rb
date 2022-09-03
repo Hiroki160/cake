@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
+
   root to: 'homes#top'
+
   get 'homes/about' => 'homes#about'
 
   namespace :admin do
@@ -10,6 +12,9 @@ Rails.application.routes.draw do
   resources :genres, only: [:index, :create, :edit, :update]
   #会員
   resources :customers, only: [:index, :show, :edit, :update]
+  # 注文
+  resources :orders, only: [:show, :update]
+  get '' => "orders#top"
   end
 
   scope module: :public do
@@ -22,6 +27,7 @@ Rails.application.routes.draw do
     get 'customers/confirmation'
     patch 'customers/withdrawal'
   end
+
 
   #顧客用
   devise_for :customers,skip: [:passwords], controllers: {
@@ -36,3 +42,4 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
 end
+
