@@ -1,2 +1,65 @@
-<h1>Admin::Customers#show</h1>
-<p>Find me in app/views/admin/customers/show.html.erb</p>
+<section class="hero is-success">
+  <div class="hero-body">
+    <div class="container">
+      <h3 class="title">
+        <%= @customer.last_name %><%= @customer.first_name %>さんの会員詳細<br><br>
+      </h3>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-6">
+
+      <div class="field form-inline">
+        <h4 style="margin-right:5%;">会員ID</h4>
+        <p class="field" style="margin-right:5%;"><%= @customer.id %></p>
+      </div>
+
+      <div class="field form-inline">
+        <h4 style="margin-right:5%;">氏名</h4>
+        <p class="field" style="margin-right:5%;"><%= @customer.last_name %><%= @customer.first_name %></p>
+      </div>
+
+      <div class="field form-inline">
+        <h4 style="margin-right:5%;">フリガナ</h4>
+        <p class="field" style="margin-right:5%;"><%= @customer.last_name_kana %><%= @customer.first_name_kana %></p>
+      </div>
+
+      <div class="field form-inline">
+        <h4 style="margin-right:5%;">郵便番号</h4>
+        <p class="field" style="margin-right:5%;"><%= @customer.postal_code %></p>
+      </div>
+
+      <div class="field form-inline">
+        <h4 style="margin-right:5%;">住所</h4>
+        <p class="field" style="margin-right:5%;"><%= @customer.address %></p>
+      </div>
+
+      <div class="field form-inline">
+        <h4 style="margin-right:5%;">電話番号</h4>
+        <p class="field" style="margin-right:5%;"><%= @customer.telephone_number %></p>
+      </div>
+
+      <div class="field form-inline">
+        <h4 style="margin-right:5%;">メールアドレス</h4>
+        <p class="field" style="margin-right:5%;"><%= @customer.email %></p>
+      </div>
+
+      <div class="field form-inline">
+        <h4 style="margin-right:5%;">会員ステータス</h4>
+        <p class="field" style="margin-right:5%;"><%= @customer.email %></p>
+      </div>
+
+      <div>
+        <%= link_to '編集する', edit_admin_customer_path(@customer.id), class: 'btn btn-success' %>
+        <%= link_to '注文履歴一覧を見る', edit_admin_customer_path(@customer.id), class: 'btn btn-primary' %>
+      </div>
+
+
+      </div>
+    </div>
+  </div>
+</section>
