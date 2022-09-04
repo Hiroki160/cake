@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
 
 
-  root to: 'homes#top'
 
-  get 'homes/about' => 'homes#about'
 
   namespace :admin do
   #アイテム
@@ -18,12 +16,13 @@ Rails.application.routes.draw do
   end
 
   scope module: :public do
+  root to: 'homes#top'
+  get 'homes/about'
 
    #会員情報
     get 'customers/my_page' => 'customers#show'
-    patch 'customers/information/edit' => 'customers#edit'
     get 'customers/information/edit' => 'customers#edit'
-    get 'customers/update'
+    patch 'customers/update' 
     get 'customers/confirmation'
     patch 'customers/withdrawal'
   end
