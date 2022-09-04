@@ -72,13 +72,11 @@
     <%= link_to "ログイン", new_customer_session_path, class: 'nav-link text-dark' %>
   </li>
 
-
-
-
-
-
   <% end %>
 
+  <li class="nav-item">
+    <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: 'nav-link text-dark' %>
+  </li>
 
          </div>
         </div>

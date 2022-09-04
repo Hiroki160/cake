@@ -22,8 +22,8 @@ class Public::SessionsController < Devise::SessionsController
       redirect_to new_customer_registration_path
     else
       flash[:notice] = "項目を入力してください"
+    end
   end
-end
 
 end
 

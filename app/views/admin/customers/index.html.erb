@@ -22,11 +22,15 @@
 	  <% @customers.each do |customer| %>
 	  <tr>
 	    <td><%= customer.id %></td>
-	    <td style>
-	    <%= link_to customer.last_name, admin_customer_path(customer.id) %>
-	    <%= link_to customer.first_name, admin_customer_path(customer.id) %>
+	    <td><%= link_to customer.last_name, admin_customer_path(customer.id) %><%= link_to customer.first_name, admin_customer_path(customer.id) %></td>
+	    <td><%= link_to customer.email, admin_customer_path(customer.id) %></td>
+	    <td>
+	    <% if customer.is_deleted == true %>
+	    退会
+	    <% else %>
+	    有効
+	    <% end %>
 	    </td>
-	    <td><%= customer.email %></td>
 	  </tr>
 	  <% end %>
 	</body>
