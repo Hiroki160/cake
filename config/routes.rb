@@ -34,6 +34,8 @@ Rails.application.routes.draw do
     patch 'customers/update'
     get 'customers/confirmation'
     patch 'customers/withdrawal'
+  # 配送先
+    resources :addresses, only: [:index, :edit, :create, :update, :destroy]
   end
 
 
