@@ -30,10 +30,34 @@
           </div>
 
           <div class="col text-center">
-            <%= f.submit '新規登録', class: 'btn btn-success' %>
-          </div>
+            <%= f.submit '新規登録', class: 'btn btn-success'  %>
+          </div><br>
 
         <% end %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">郵便番号</th>
+      <th scope="col">住所</th>
+      <th scope="col">宛名</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @addresses.each do |address| %>
+
+    <tr>
+      <td><%= address.postal_code %></td>
+      <td><%= address.address %></td>
+      <td><%= address.name %></td>
+      <td><%= link_to "編集する", edit_address_path(address.id), class: 'btn btn-success' %></td>
+      <td><%= link_to "編集する", edit_address_path(address.id), class: 'btn btn-success' %></td>
+    </tr>
+  </tbody>
+    <% end %>
+  </tbody>
+</table>
 
 
       </div>

@@ -8,6 +8,9 @@ class Public::AddressesController < ApplicationController
   end
 
   def create
+    address = Address.new(address_params)
+    address.save
+    redirect_to addresses_path
   end
 
   def update
@@ -15,4 +18,11 @@ class Public::AddressesController < ApplicationController
 
   def destroy
   end
+
+  private
+
+  def address_params
+    params.require(:address).permit(:postal_code, :address, :name)
+  end
 end
+
