@@ -36,6 +36,8 @@ Rails.application.routes.draw do
     patch 'customers/withdrawal'
   # 配送先
     resources :addresses, only: [:index, :edit, :create, :update, :destroy]
+  # アイテム
+    resources :items, only: [:index, :show]
   end
 
 

@@ -1,0 +1,22 @@
+
+
+<section class="hero is-info">
+  <div class="hero-body">
+    <div class="container">
+      <h3 class="title">
+        商品一覧 (全<%= @items.count %>件)
+      </h3>
+    </div>
+  </div>
+</section>
+
+<tbody>
+  <% @items.each do |item| %>
+    <tr>
+      <td><%= image_tag item.image, size: "200x200" %></td>
+      <td><%= item.name %></td>
+      <td> <th>￥<%= (item.price * 1.1).to_i %></th></td>
+    </tr>
+
+  <% end %>
+</tbody>
