@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
   #顧客用
   devise_for :customers,skip: [:passwords], controllers: {
     registrations: "public/registrations",
@@ -38,6 +39,8 @@ Rails.application.routes.draw do
     resources :addresses, only: [:index, :edit, :create, :update, :destroy]
   # アイテム
     resources :items, only: [:index, :show]
+  # カート
+    resources :cart_items, only: [:index, :update, :destroy, :create]
   end
 
 

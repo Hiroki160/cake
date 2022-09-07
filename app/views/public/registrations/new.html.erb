@@ -18,23 +18,23 @@
   <%= render "public/shared/error_messages", resource: resource %>
 
   <div class="mb-3 name">
-    <%= f.label :名前, class: "label" %>
-      <span>(姓)</span><%= f.text_field :last_name, :placeholder => "姓", class: "form-control" %>
-      <span>(名)</span><%= f.text_field :first_name, :placeholder => "名", class: "form-control" %>
+    <%= f.label :名前, class: "label label2" %>
+      <span style="width:150px;">(姓)</span><%= f.text_field :last_name, :placeholder => "姓", class: "form-control" %>
+      <span style="width:150px;">(名)</span><%= f.text_field :first_name, :placeholder => "名", class: "form-control" %>
   </div>
   <div class="mb-3 name">
-    <%= f.label :フリガナ, class: "label" %>
-      <span>(セイ)</span><%= f.text_field :last_name_kana, :placeholder => "姓", class: "form-control" %>
-      <span>(メイ)</span><%= f.text_field :first_name_kana, :placeholder => "名", class: "form-control" %>
+    <%= f.label :フリガナ, class: "label label2" %>
+      <span style="width:150px;">(セイ)</span><%= f.text_field :last_name_kana, :placeholder => "姓", class: "form-control" %>
+      <span style="width:150px;">(メイ)</span><%= f.text_field :first_name_kana, :placeholder => "名", class: "form-control" %>
   </div>
 
-  <div class="mb-3">
-    <%= f.label :メールアドレス, class: "form-label" %>
+  <div class="mb-3 name">
+    <%= f.label :メールアドレス, class: "label label4" %>
     <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
   </div>
 
-  <div class="mb-3">
-    <%= f.label :郵便番号（ハイフンなし）, class: "form-label" %>
+  <div class="mb-3 name">
+    <%= f.label :郵便番号（ハイフンなし）, class: "label label3" %>
     <%= f.text_field :postal_code, autofocus: true, autocomplete: "email", class: "form-control" %>
   </div>
 
@@ -62,7 +62,7 @@
   </div>
 
     <div class="col text-center">
-      <%= f.submit '新規登録', class: 'btn btn-success' %>
+     <%= f.submit '新規登録', class: 'btn btn-success' %>
     </div>
 <% end %>
 
