@@ -8,8 +8,11 @@
 			<p><%= @item.introduction %></p>
       <div>￥<%= (@item.price * 1.1).to_i %></div>
 
-
-
+      <%= form_with model: @cart_item, url: cart_items_path, method: :post do |f| %>
+        <%= f.hidden_field :title, :value => "@item.id" %>
+        <%= f.select :amount, *[1..3], :placeholder => "個数選択", class: "quantity-select-form" %>
+        <!--カートに入れるボタン実装-->
+      <% end %>
 		</div>
 	</div>
 </div>
