@@ -59,3 +59,4 @@ gem 'devise'
 gem 'bootstrap', '~> 5.2.0'
 gem 'jquery-rails'
 gem "enum_help"
+gem 'pry-rails'
