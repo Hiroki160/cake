@@ -20,5 +20,5 @@ end
 private
 
 def cart_item_params
-  params.require(:cart_item).permit(:amoount, :cart_id)
+  params.require(:cart_item).permit(:amount, :cart_id, :item_id)
 end
