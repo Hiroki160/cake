@@ -47,6 +47,5 @@
 
 
   <%= form_with model: @cart_item, url: cart_items_path, method: :post do |f| %>
-  <%= f.hidden_field :customer_id, :value => @customer.id %>
   <%= f.submit '情報入力に進む', class: 'btn btn-success' %>
   <% end %>
