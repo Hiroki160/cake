@@ -41,6 +41,8 @@ Rails.application.routes.draw do
     resources :items, only: [:index, :show]
   # カート
     resources :cart_items, only: [:index, :update, :destroy, :create]
+  #オーダー
+    resources :orders, only: [:new, :create, :index, :show]
   end
 
 
