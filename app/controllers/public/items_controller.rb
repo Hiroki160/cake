@@ -8,4 +8,6 @@ class Public::ItemsController < ApplicationController
     @cart_item = CartItem.new
     @customer = current_customer
   end
+
+
 end
