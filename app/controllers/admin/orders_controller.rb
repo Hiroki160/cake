@@ -9,4 +9,7 @@ class Admin::OrdersController < ApplicationController
 
   def update
   end
+  
+  def confirm
+  end
 end

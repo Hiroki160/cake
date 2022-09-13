@@ -51,6 +51,7 @@
     <% @addresses.each do |address| %>
 
     <tr>
+      <td><%= current_customer.addresses %></td>
       <td><%= address.postal_code %></td>
       <td><%= address.address %></td>
       <td><%= address.name %></td>
