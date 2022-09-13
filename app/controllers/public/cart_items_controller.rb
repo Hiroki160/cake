@@ -25,8 +25,8 @@ class Public::CartItemsController < ApplicationController
     # 注文確認ページにする
   end
 
-  def destory_all
-    @cart_items = current_customer.cart_items.destroy_all
+  def destroy_all
+    current_customer.cart_items.destroy_all
     redirect_to cart_items_path
   end
 

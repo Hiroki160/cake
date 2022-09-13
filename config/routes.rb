@@ -40,6 +40,7 @@ Rails.application.routes.draw do
   # アイテム
     resources :items, only: [:index, :show]
   # カート
+    delete 'cart_items/destroy_all'
     resources :cart_items, only: [:index, :update, :destroy, :create]
   #オーダー
     resources :orders, only: [:new, :create, :index, :show]

@@ -27,6 +27,21 @@
           	</div>
         </div>
 
+        <div class="radio">
+          <p style="margin-right:5%;">お届け先</p>
+            <div>
+            	<%= f.radio_button :address_number, 1 %>
+            	<label class="payment-label">ご自身の住所</label>
+            	<div><%= current_customer.postal_code %><%= current_customer.address %></div>
+            	<%= f.radio_button :address_number, 2 %>
+            	<label class="payment-label">登録済み住所から選択</label>
+            	<div><%= f.select :address_id, options_from_collection_for_select(current_customer.addresses, :id, :address_display) %></div>
+          	<div>
+            	<%= f.radio_button :payment_method, 1 %>
+            	<label class="payment_label">銀行振込</label>
+          	</div>
+        </div>
+
       <% end %>
 
       </div>
