@@ -42,6 +42,7 @@ Rails.application.routes.draw do
   # カート
     delete 'cart_items/destroy_all'
     post 'orders/confirm' => 'orders#confirm'
+    get 'orders/complete' => 'orders#complete'
     resources :cart_items, only: [:index, :update, :destroy, :create]
   #オーダー
     resources :orders, only: [:new, :create, :index, :show]

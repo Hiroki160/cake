@@ -5,8 +5,8 @@ class Public::OrdersController < ApplicationController
 
   def create
     @order = Order.new(order_params)
-    order.save
-    redirect_to address_path
+    @order.save
+    redirect_to orders_complete_path
   end
 
   def index
@@ -17,15 +17,18 @@ class Public::OrdersController < ApplicationController
 
   def confirm
     @order = Order.new(order_params)
-    @order.payment_method = params[:order][:payment_method].to_i
+    @order.payment_method = params[:order][:payment_method].to_i #enumで数字を記述しているので、to_iでintegerに変える必要がある。f.radioは文字列で入ってくる
     #address_numberの条件分岐
-    if params[:order][:address_number] == 1
+    if params[:order][:address_number] == "1"
       @order.postal_code = current_customer.postal_code
       @order.address = current_customer.address
       @order.name = current_customer.first_name + current_customer.last_name
-    elsif params[:order][:address_number] == 2
-      @address = Address.find(params[:order][:address_id])
-    else
+    elsif params[:order][:address_number] == "2"
+      @address = Address.find(params[:order][:address_id]) #Addressテーブルの中から、address_idを持ってくる
+      @order.postal_code = @address.postal_code
+      @order.address = @address.address
+      @order.name = @address.name
+    elsif params[:order][:address_number] == "3"
       @order.postal_code = params[:order][:postal_code]
       @order.address = params[:order][:address]
       @order.name = params[:order][:name]
