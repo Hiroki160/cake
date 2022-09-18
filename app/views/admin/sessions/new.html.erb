@@ -16,33 +16,21 @@
 <%= form_with model: @admin, url: new_admin_session_path do |f| %>
 
 
-  <div class="row g-3 align-items-center">
     <div class="mb-3">
-    <%= f.label :メールアドレス, class: "col-form-label" %>
+      <%= f.label :メールアドレス, class: "col-form-label" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", :placeholder => "username", class: "form-control" %>
     </div>
-    <div class="col-auto">
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", :placeholder => "username", class: "form-control" %>
+
     </div>
   </div>
 
-  <div class="row g-3 align-items-center">
     <div class="mb-3">
-    <%= f.label :パスワード, class: "col-form-label" %>
+      <%= f.label :パスワード, class: "col-form-label" %>
+      <%= f.password_field :password, autocomplete: "current-password", :placeholder => "password", class: "form-control" %>
     </div>
-    <div class="col-auto">
-    <%= f.password_field :password, autocomplete: "current-password", :placeholder => "password", class: "form-control" %>
-    </div>
-  </div>
 
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me, class: "label" %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
+  <div class="actions text-center">
+    <%= f.submit "ログイン", class: 'btn btn-primary' %>
   </div>
 <% end %>
 
