@@ -18,18 +18,18 @@
         <div class="radio">
           <p style="margin-right:5%;">支払い方法</p>
             <div>
-            	<%= f.radio_button :payment_method, 0 %>
+            	<%= f.radio_button :payment_method, Order.payment_methods.key(0) %>
             	<label class="payment-label">クレジットカード</label>
             </div>
           	<div>
-            	<%= f.radio_button :payment_method, 1 %>
+            	<%= f.radio_button :payment_method, Order.payment_methods.key(1) %>
             	<label class="payment_label">銀行振込</label>
           	</div>
         </div>
 
         <div class="radio">
           <p style="margin-right:5%;">お届け先</p>
-            <div> 
+            <div>
             	<%= f.radio_button :address_number, 1 %>
             	<label class="payment-label">ご自身の住所</label>
             	<div><%= current_customer.postal_code %><%= current_customer.address %><%= current_customer.last_name %><%= current_customer.first_name %></div>
