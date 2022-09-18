@@ -3,6 +3,11 @@
     <div class="container">
       <h3 class="title">
         商品一覧<br><br>
+        
+  				<%= link_to new_admin_item_path, class: "btn btn btn-secondary text-white", method: :get do %>
+            <i class="fa-solid fa-hexagon-plus"></i>
+        
+        <% end %>
       </h3>
     </div>
   </div>
@@ -21,8 +26,6 @@
 						<th>ステータス</th>
 					</tr>
 				</thead>
-				
-				<%= link_to 
 
 				<tbody>
 				  <% @items.each do |item| %>

@@ -12,19 +12,18 @@
 <section class="section">
   <div class="container">
     <div class="columns is-centered">
-      <div class="column is-6">
+      <div class="column is-5">
 <%= form_with model: @item, url: admin_items_path, method: :post do |f| %>
 
 
-
-    <div class="field form-inline">
-      <p style="margin-right:5%;">商品画像</p>
-        <div class="field" style="margin-right:5%;"><%= f.file_field :image, accept: "image/*" %></div>
+    <div class="mb-3">
+      <%= f.label :商品画像, class: "col-form-label" %>
+      <%= f.file_field :image, accept: "image/*" %>
     </div>
 
-    <div class="field form-inline">
-      <p style="margin-right:5%;">商品名</p>
-        <div class="field" style="margin-right:5%;"><%= f.text_field :name %></div>
+    <div class="mb-3">
+      <%= f.label :商品名, class: "col-form-label" %>
+      <%= f.text_field :name %>
     </div>
 
     <div class="field form-inline">
