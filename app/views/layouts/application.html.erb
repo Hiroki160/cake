@@ -1,9 +1,5 @@
 <!DOCTYPE html>
 <html>
-  <body>
-  <% flash.each do |key, value| %>
-    <%= content_tag(:div, value, class: "#{key}") %>
-  <% end %>
   <head>
     <title>Cake</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -14,6 +10,11 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  <body>
+    <header>
+  <% flash.each do |key, value| %>
+    <%= content_tag(:div, value, class: "#{key}") %>
+  <% end %>
 
 <% if customer_signed_in? %>
 <%= render 'public/shared/header' %>
@@ -25,9 +26,11 @@
 <%= render 'public/shared/header2' %>
 
 <% end %>
+</header>
+<main>
+  <%= yield %>
+</main>
 
 
-
-    <%= yield %>
   </body>
 </html>
