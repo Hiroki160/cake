@@ -1,6 +1,6 @@
 <div class="container-fluid">
 	<div class="row">
-		<div class="col-md-12" style="text-align:right;">
+		<div class="col-md-12">
 			<p class="text-center">
 			  ようこそながのケーキへ！<br>
 			  このサイトは、ケーキ販売のECサイトになります。<br>
@@ -11,4 +11,18 @@
 	</div>
 </div>
 
+<h2 style="text-align:center;">新着商品</h2>
+<tbody>
+  <% @items.each do |item| %>
+    <tr>
+      <td><%= image_tag item.image, size: "200x200" %></td>
+      <td><%= link_to item.name, item_path(item.id) %></td>
+      <td><th>￥<%= (item.price * 1.1).to_i %></th></td>
+    </tr>
+
+  <% end %>
+</tbody>
+
+<div style="text-align:center;">
 <%= link_to '全ての商品を見る', items_path, class: "col-md-12" %>
+</div>

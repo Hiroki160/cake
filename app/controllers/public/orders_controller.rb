@@ -13,6 +13,7 @@ class Public::OrdersController < ApplicationController
   def index
     @orders = current_customer.orders.all
     @cart_items = current_customer.cart_items.all
+    @total = 0
   end
 
   def show
@@ -39,7 +40,6 @@ class Public::OrdersController < ApplicationController
     @cart_items = CartItem.all
     @orders = Order.all
     @total = 0
-    #binding.pry
   end
 
   private

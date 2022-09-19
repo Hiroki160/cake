@@ -14,15 +14,7 @@
       <div class="column is-6">
 <%= form_with model: @genre, url: admin_genres_path, method: :post do |f| %>
 
-    <% if @genre.errors.any? %>
-  <div class="alert alert-warning">
-    <ul>
-      <% @genre.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
+
 
     <div class="field form-inline">
       <p style="margin-right:5%;">ジャンル名</p>

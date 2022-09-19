@@ -8,6 +8,15 @@
   </div>
 </section>
 
+<% if @customer.errors.any? %>
+  <div class="alert alert-warning">
+    <ul>
+      <% @customer.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
 
 <%= form_with model: @customer, url: admin_customer_path(@customer.id) do |f| %>
 

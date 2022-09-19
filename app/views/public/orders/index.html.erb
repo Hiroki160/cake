@@ -24,9 +24,13 @@
     <% @cart_items.each do |cart_item| %>
       <tr>
         <td><%= order.created_at %></td>
-        <td><%= order.address %></td>
-        <td><%= cart_item.item.name %></td>
-        <td><%= order.total_payment %></td>
+        <td>
+          <%= order.postal_code %><br>
+          <%= order.address %><br>
+          <%= order.name %>
+        </td>
+        <td><%= order.name%></td>
+        <td><%= @total += cart_item.subtotal %></td>
         <td></td>
       </tr>
     <% end %>
