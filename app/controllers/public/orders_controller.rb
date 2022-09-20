@@ -4,23 +4,40 @@ class Public::OrdersController < ApplicationController
   end
 
   def create
-    @order = Order.new(order_params)
-    @order.customer_id = current_customer.id
-    @order.save
+    cart_items = current_customer.cart_items.all
+    @order = current_customer.orders.new(order_params)
+    if @order.save
+      cart_items.each do |cart|
+        order_detail = OrderDetail.new
+        order_detail.item_id = cart.item_id
+        order_detail.order_id = @order.id
+        order_detail.amount = cart.amount
+        order_detail.price = cart.item.price
+        order_detail.save
+      end
     redirect_to orders_complete_path
+    cart_items.destroy_all
+    else
+      @order = Order.new(order_params)
+      render :new
+    end
   end
 
   def index
     @orders = current_customer.orders.all
-    @cart_items = current_customer.cart_items.all
     @total = 0
   end
 
   def show
+    @order = Order.find(params[:id])
+    # @orders = Order.all
+    @order_details = @order.order_details.all
+    @total = 0
   end
 
   def confirm
     @order = Order.new(order_params)
+    @order.carriage = 800
     @order.payment_method = params[:order][:payment_method].to_i #enumで数字を記述しているので、to_iでintegerに変える必要がある。f.radioは文字列で入ってくる
     #address_numberの条件分岐
     if params[:order][:address_number] == "1"
@@ -45,7 +62,7 @@ class Public::OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:payment_method, :postal_code, :address, :name, :total_payment)
+    params.require(:order).permit(:payment_method, :postal_code, :address, :name, :total_payment, :carriage)
   end
 
 end
