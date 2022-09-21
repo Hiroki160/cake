@@ -1,8 +1,8 @@
 class Admin::OrdersController < ApplicationController
   
   def top
-    @cart_items = CartItem.page(params[:page])
-    @orders = Order.all
+    # @cart_items = CartItem.page(params[:page])
+    @order_details = OrderDetail.all
   end
   
   def show
