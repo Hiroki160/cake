@@ -18,56 +18,62 @@
   </div>
 <% end %>
 
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-5">
+
 <%= form_with model: @customer, url: admin_customer_path(@customer.id) do |f| %>
 
-  <div class="field form-inline">
-    <p style="margin-right:1%;">会員ID</p>
-      <div class="field" style="margin-right:1%;"><%= @customer.id %></div>
+
+  <div class="row mb-3">
+    <div class="col-sm-2">会員ID</div>
+    <div class="col-sm-10"><%= @customer.id %></div>
   </div>
 
-  <div class="field form-inline">
-    <p style="margin-right:1%;">氏名</p>
+  <div class="row mb-3">
+    <p class="col-sm-2" style="margin-right:5.6%;">氏名</p>
     <p style="margin-right:1%;">(姓)</p>
       <div class="field" style="margin-right:1%;"><%= f.text_field :last_name %></div>
     <p style="margin-right:1%;">(名)</p>
       <div class="field" style="margin-right:1%;"><%= f.text_field :first_name %></div>
   </div>
 
-  <div class="field form-inline">
-    <p style="margin-right:1%;">フリガナ</p>
+  <div class="row mb-3">
+    <p class="col-sm-2" style="margin-right:4.3%;">フリガナ</p>
     <p style="margin-right:1%;">(セイ)
       <div class="field" style="margin-right:1%;"><%= f.text_field :last_name_kana %></div>
     <p style="margin-right:1%;">(メイ)</p>
       <div class="field" style="margin-right:1%;"><%= f.text_field :first_name_kana %></div>
   </div>
 
-  <div class="field form-inline">
-    <p style="margin-right:1%;">郵便番号(ハイフンなし)</p>
+  <div class="row mb-3">
+    <p class="col-sm-3" style="margin-right:0.8%;">郵便番号(ハイフンなし)</p>
       <div class="field" style="margin-right:1%;"><%= f.text_field :postal_code, autofocus: true, autocomplete: "email" %></div>
   </div>
 
-  <div class="field form-inline">
-    <p style="margin-right:1%;">住所</p>
+  <div class="row mb-3">
+    <p class="col-sm-3" style="margin-right:0.8%;">住所</p>
       <div class="field" style="margin-right:1%;"><%= f.text_field :address, autofocus: true, autocomplete: "email" %></div>
   </div>
 
- <div class="field form-inline">
-    <p style="margin-right:1%;">電話番号(ハイフンなし)</p>
+ <div class="row mb-3">
+    <p class="col-sm-3" style="margin-right:0.8%;">電話番号(ハイフンなし)</p>
       <div class="field" style="margin-right:1%;"><%= f.text_field :telephone_number, autofocus: true, autocomplete: "email" %></div>
   </div>
 
-  <div class="field form-inline">
-    <p style="margin-right:1%;">メールアドレス</p>
+  <div class="row mb-3">
+    <p class="col-sm-3" style="margin-right:0.8%;">メールアドレス</p>
       <div class="field" style="margin-right:1%;"><%= f.email_field :email, autofocus: true, autocomplete: "email" %></div>
   </div>
 
-  <div class="field form-inline">
-    <h4 style="margin-right:5%;">会員ステータス</h4>
-    <div class="field" style="margin-right:5%;">
-      <%=  f.radio_button :is_deleted, true, class: "form-conrol" %>
-      <%= f.label :is_active, "退会" %>
-      <%= f.radio_button :is_deleted, false %>
-      <%= f.label :is_active, "有効" %>
+  <div class="row mb-3">
+    <h4 style="margin-right:7%;">会員ステータス</h4>
+    <div class="col-sm-3" style="margin-right:5%;">
+      <span style="margin-right:2%;"><%=  f.radio_button :is_deleted, true, class: "form-conrol" %></span>
+      <span><%= f.label :is_active, "退会" %></span>
+      <span> <%= f.radio_button :is_deleted, false %></span>
+      <span><%= f.label :is_active, "有効" %></span>
     </div>
   </div>
 
@@ -76,4 +82,7 @@
 <% end %>
 
 
-
+      </div>
+    </div>
+  </div>
+</section>
