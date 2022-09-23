@@ -20,7 +20,7 @@
 		<body>
 	  <% @order_details.each do |o| %>
 	  <tr>
-	    <td><%= o.created_at %></td>
+	    <td><%= link_to o.created_at, admin_order_path(o.id) %></td>
 	    <td><%= o.order.name %></td>
 	    <td><%= o.amount %></td>
 	    <td></td>

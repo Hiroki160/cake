@@ -13,7 +13,11 @@
 <tbody>
   <% @items.each do |item| %>
     <tr>
-      <td><%= image_tag item.image, size: "200x200" %></td>
+      <td>
+        <%= link_to item_path(item.id) do %>
+        <%= image_tag item.image, size: "200x200" %>
+        <% end %>
+      </td>
       <td><%= link_to item.name, item_path(item.id) %></td>
       <td><th>￥<%= (item.price * 1.1).to_i %></th></td>
     </tr>
