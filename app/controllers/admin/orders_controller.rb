@@ -1,13 +1,16 @@
 class Admin::OrdersController < ApplicationController
 
   def top
-    # @cart_items = CartItem.page(params[:page])
+    @orders = Order.all.page(params[:page])
     @order_details = OrderDetail.all
+  
+    # @cart_items = CartItem.page(params[:page])
+    # @total = OrderDetails.all.sum(:amount)
   end
 
   def show
-    @order_detail = OrderDetail.find(params[:id])
-    @order_details = OrderDetail.all
+    @order = Order.find(params[:id])
+    @order_details = @order.order_details.all
   end
 
   def update

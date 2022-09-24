@@ -1,6 +1,6 @@
 class Public::ItemsController < ApplicationController
   def index
-    # @items = Item.all.order(created_at: :desc).limit(3)
+    @items = Item.all
     # @items = Item.limit(3).order(id)
   end
 

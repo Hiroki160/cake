@@ -3,4 +3,8 @@ class Order < ApplicationRecord
   belongs_to :customer
   has_many :order_details, dependent: :destroy
   #has_many :cart_items, dependent: :destroy
+  def sumprice
+    sum(:amount)
+  end
+  
 end

@@ -119,7 +119,7 @@ ActiveRecord::Schema.define(version: 2022_09_19_075752) do
     t.integer "customer_id"
     t.string "postal_code"
     t.string "address"
-    t.string "name"
+    t.string "name" 
     t.integer "carriage"
     t.integer "total_payment"
     t.integer "payment_method"
