@@ -38,7 +38,10 @@ class Public::OrdersController < ApplicationController
   def confirm
     @order = Order.new(order_params)
     @order.carriage = 800
-    @order.payment_method = params[:order][:payment_method].to_i #enumで数字を記述しているので、to_iでintegerに変える必要がある。f.radioは文字列で入ってくる
+    if params[:order][:payment_method] == "transfer"
+    @order.payment_method = 1
+    end
+    #enumで数字を記述しているので、to_iでintegerに変える必要がある。f.radioは文字列で入ってくる
     #address_numberの条件分岐
     if params[:order][:address_number] == "1"
       @order.postal_code = current_customer.postal_code
