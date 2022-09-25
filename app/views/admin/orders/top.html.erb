@@ -15,7 +15,7 @@
 		</tr>
 	</thead>
 
-	<body>
+	<tbody>
 	  <% @orders.each do |o| %>
 	  <tr>
 	    <td><%= link_to o.created_at, admin_order_path(o.id) %></td>
@@ -25,7 +25,8 @@
 	     </td>
 	  </tr>
 	  <% end %>
-	</body>
+	</tbody>
+	</table>
 
 	<%= paginate @orders %>
 
