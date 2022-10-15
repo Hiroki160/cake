@@ -20,7 +20,7 @@
   <tr><th>購入者</th><td><%= @order.name %></td></tr>
   <tr><th>注文日</th><td><%= @order.created_at %></td></tr>
   <tr><th>配送先</th><td><%= @order.postal_code %><%= @order.address %> <%= @order.name %></td></td></tr>
-  <tr><th>支払い方法</th><td><%= @order.payment_method %></td></tr>
+  <tr><th>支払い方法</th><td><%= @order.payment_method_i18n %></td></tr>
 </table>
 
 <table class="table">

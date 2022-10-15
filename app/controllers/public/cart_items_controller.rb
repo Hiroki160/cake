@@ -24,7 +24,7 @@ class Public::CartItemsController < ApplicationController
     @cart_items = current_customer.cart_items.all
     @cart_items.each do |cart|
       if cart.item_id == @cart_item.item_id
-        new_amount = @cart_item.amount + @cart_item.amount
+        new_amount = cart.amount + @cart_item.amount
         cart.update_attribute(:amount, new_amount)
         @cart_item.delete
       end
